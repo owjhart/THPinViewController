@@ -67,6 +67,7 @@
         _bottomButton.translatesAutoresizingMaskIntoConstraints = NO;
         _bottomButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
         _bottomButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
+        [_bottomButton setTitleColor:_promptLabel.textColor forState:UIControlStateNormal];
         [_bottomButton setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel
                                                        forAxis:UILayoutConstraintAxisHorizontal];
         [self updateBottomButton];
@@ -164,6 +165,7 @@
 - (void)setPromptColor:(UIColor *)promptColor
 {
     self.promptLabel.textColor = promptColor;
+    [self.bottomButton setTitleColor:promptColor forState:UIControlStateNormal];
 }
 
 - (BOOL)hideLetters
