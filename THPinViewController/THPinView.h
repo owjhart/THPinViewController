@@ -14,23 +14,25 @@
 @protocol THPinViewDelegate <NSObject>
 
 @required
-- (NSUInteger)pinLengthForPinView:(THPinView *)pinView;
-- (BOOL)pinView:(THPinView *)pinView isPinValid:(NSString *)pin;
-- (void)cancelButtonTappedInPinView:(THPinView *)pinView;
-- (void)correctPinWasEnteredInPinView:(THPinView *)pinView;
-- (void)incorrectPinWasEnteredInPinView:(THPinView *)pinView;
+- (NSUInteger)pinLengthForPinView:(nonnull THPinView *)pinView;
+- (BOOL)pinView:(nonnull THPinView *)pinView isPinValid:(nonnull NSString *)pin;
+- (void)cancelButtonTappedInPinView:(nonnull THPinView *)pinView;
+- (void)correctPinWasEnteredInPinView:(nonnull THPinView *)pinView;
+- (void)incorrectPinWasEnteredInPinView:(nonnull THPinView *)pinView;
 
 @end
 
 @interface THPinView : UIView
 
 @property (nonatomic, weak) id<THPinViewDelegate> delegate;
-@property (nonatomic, copy) NSString *promptTitle;
-@property (nonatomic, strong) UIColor *promptColor;
+@property (nullable, nonatomic, copy) NSString *promptTitle;
+@property (nullable, nonatomic, strong) UIColor *promptColor;
 @property (nonatomic, assign) BOOL hideLetters;
 @property (nonatomic, assign) BOOL disableCancel;
 
-- (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithDelegate:(nullable id<THPinViewDelegate>)delegate NS_DESIGNATED_INITIALIZER;
 
 - (void)resetInput;
 

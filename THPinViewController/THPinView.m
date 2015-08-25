@@ -28,9 +28,17 @@
 
 @implementation THPinView
 
+- (instancetype)initWithFrame:(CGRect)frame{
+    return [super initWithFrame:frame];
+}
+
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder{
+    return [super initWithCoder:aDecoder];
+}
+
 - (instancetype)initWithDelegate:(id<THPinViewDelegate>)delegate
 {
-    self = [super init];
+    self = [super initWithFrame:CGRectZero];
     if (self)
     {
         _delegate = delegate;

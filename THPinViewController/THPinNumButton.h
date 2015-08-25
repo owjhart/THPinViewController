@@ -12,9 +12,11 @@
 @interface THPinNumButton : UIButton
 
 @property (nonatomic, readonly, assign) NSUInteger number;
-@property (nonatomic, readonly, copy) NSString *letters;
+@property (nullable, nonatomic, readonly, copy) NSString *letters;
 
-- (instancetype)initWithNumber:(NSUInteger)number letters:(NSString *)letters NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)initWithNumber:(NSUInteger)number letters:(nullable NSString *)letters NS_DESIGNATED_INITIALIZER;
 
 + (CGFloat)diameter;
 
