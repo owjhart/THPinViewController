@@ -48,7 +48,9 @@
     self.pinView = [[THPinView alloc] initWithDelegate:self];
     self.pinView.backgroundColor = self.view.backgroundColor;
     self.pinView.promptTitle = self.promptTitle;
-    self.pinView.promptColor = self.promptColor;
+    if (self.promptColor){
+        self.pinView.promptColor = self.promptColor;
+    }
     self.pinView.hideLetters = self.hideLetters;
     self.pinView.disableCancel = self.disableCancel;
     self.pinView.translatesAutoresizingMaskIntoConstraints = NO;
