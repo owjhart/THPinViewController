@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Thomas Heß. All rights reserved.
 //
 
-@import UIKit;
+#import <UIKit/UIKit.h>
 #import "THPinViewControllerMacros.h"
 
 @class THPinViewController;
