@@ -43,6 +43,6 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 @property (nonatomic, assign) BOOL disableCancel; // hides the cancel button
 @property (nonatomic, assign) BOOL squareButtons; // makes the number buttons square if YES
 
-- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate squareButtons:(BOOL)squareButtons NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithDelegate:(id<THPinViewControllerDelegate>)delegate squareButtons:(BOOL)squareButtons;
 
 @end

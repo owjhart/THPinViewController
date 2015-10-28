@@ -39,7 +39,8 @@
         _promptLabel = [[UILabel alloc] init];
         _promptLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _promptLabel.textAlignment = NSTextAlignmentCenter;
-        _promptLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 22.0f : 18.0f];
+        _promptLabel.font = [UIFont fontWithName:@"FuturaStd-Book" size:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 22.0f : 18.0f];
+        _promptLabel.numberOfLines = 0;
         [_promptLabel setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel
                                                       forAxis:UILayoutConstraintAxisHorizontal];
         [self addSubview:_promptLabel];
@@ -66,7 +67,7 @@
         
         _bottomButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _bottomButton.translatesAutoresizingMaskIntoConstraints = NO;
-        _bottomButton.titleLabel.font = [UIFont systemFontOfSize:16.0f];
+        _bottomButton.titleLabel.font = [UIFont fontWithName:@"FuturaStd-Book" size:16.0f];
         _bottomButton.titleLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         [_bottomButton setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel
                                                        forAxis:UILayoutConstraintAxisHorizontal];

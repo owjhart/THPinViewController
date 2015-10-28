@@ -9,6 +9,7 @@
 #import "THPinViewController.h"
 #import "THPinView.h"
 #import "UIImage+ImageEffects.h"
+#import "THPinNumButton.h"
 
 @interface THPinViewController () <THPinViewDelegate>
 
@@ -74,6 +75,7 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view attribute:NSLayoutAttributeCenterY
                                                          multiplier:1.0f constant:pinViewYOffset]];
+    
 }
 
 #pragma mark - Properties
