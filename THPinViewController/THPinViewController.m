@@ -42,6 +42,10 @@
     return self;
 }
 
+- (BOOL)compactHeight{
+    return (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone && self.navigationController!=nil);
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -76,7 +80,11 @@
         if (isFourInchScreen) {
             pinViewYOffset = 25.5f;
         } else {
-            pinViewYOffset = 18.5f;
+            if (self.navigationController != nil) {
+                pinViewYOffset = 38.0f;
+            }else{
+                pinViewYOffset = 18.5f;
+            }
         }
     }
     [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pinView attribute:NSLayoutAttributeCenterY

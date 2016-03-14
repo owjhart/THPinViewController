@@ -80,7 +80,7 @@
                                                        forAxis:UILayoutConstraintAxisHorizontal];
         [self updateBottomButton];
         [self addSubview:_bottomButton];
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad || _delegate.compactHeight) {
             // place button right of zero number button
             [self addConstraint:[NSLayoutConstraint constraintWithItem:_bottomButton attribute:NSLayoutAttributeCenterX
                                                              relatedBy:NSLayoutRelationEqual
@@ -110,16 +110,24 @@
             _paddingBetweenPromptLabelAndInputCircles = 22.0f;
             _paddingBetweenInputCirclesAndNumPad = 52.0f;
         } else {
-            [vFormat appendString:@"-(paddingBetweenNumPadAndBottomButton)-[bottomButton]"];
+            if (!_delegate.compactHeight) {
+                [vFormat appendString:@"-(paddingBetweenNumPadAndBottomButton)-[bottomButton]"];
+            }
             BOOL isFourInchScreen = (fabs(CGRectGetHeight([[UIScreen mainScreen] bounds]) - 568.0f) < DBL_EPSILON);
             if (isFourInchScreen) {
                 _paddingBetweenPromptLabelAndInputCircles = 22.5f;
                 _paddingBetweenInputCirclesAndNumPad = 41.5f;
                 _paddingBetweenNumPadAndBottomButton = 19.0f;
             } else {
-                _paddingBetweenPromptLabelAndInputCircles = 15.5f;
-                _paddingBetweenInputCirclesAndNumPad = 14.0f;
-                _paddingBetweenNumPadAndBottomButton = -7.5f;
+                if (!_delegate.compactHeight) {
+                    _paddingBetweenPromptLabelAndInputCircles = 15.5f;
+                    _paddingBetweenInputCirclesAndNumPad = 14.0f;
+                    _paddingBetweenNumPadAndBottomButton = -7.5f;
+                }else{
+                    _paddingBetweenPromptLabelAndInputCircles = 8.0f;
+                    _paddingBetweenInputCirclesAndNumPad = 8.0f;
+                    _paddingBetweenNumPadAndBottomButton = 0.0;
+                }
             }
         }
         [vFormat appendString:@"|"];
@@ -141,7 +149,7 @@
     CGFloat height = (self.promptLabel.intrinsicContentSize.height + self.paddingBetweenPromptLabelAndInputCircles +
                       self.inputCirclesView.intrinsicContentSize.height + self.paddingBetweenInputCirclesAndNumPad +
                       self.numPadView.intrinsicContentSize.height);
-    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad) {
+    if (UI_USER_INTERFACE_IDIOM() != UIUserInterfaceIdiomPad && !_delegate.compactHeight) {
         height += self.paddingBetweenNumPadAndBottomButton + self.bottomButton.intrinsicContentSize.height;
     }
     return CGSizeMake(self.numPadView.intrinsicContentSize.width, height);

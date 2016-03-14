@@ -14,6 +14,7 @@
 @protocol THPinViewDelegate <NSObject>
 
 @required
+@property (readonly) BOOL compactHeight;
 - (NSUInteger)pinLengthForPinView:(nonnull THPinView *)pinView;
 - (BOOL)pinView:(nonnull THPinView *)pinView isPinValid:(nonnull NSString *)pin;
 - (void)cancelButtonTappedInPinView:(nonnull THPinView *)pinView;
@@ -24,11 +25,12 @@
 
 @interface THPinView : UIView
 
-@property (nonatomic, weak) id<THPinViewDelegate> delegate;
+@property (nonatomic, null_unspecified, weak) id<THPinViewDelegate> delegate;
 @property (nullable, nonatomic, copy) NSString *promptTitle;
 @property (nullable, nonatomic, strong) UIColor *promptColor;
 @property (nonatomic, assign) BOOL hideLetters;
 @property (nonatomic, assign) BOOL disableCancel;
+@property (nonatomic) BOOL buttonNextToZero;
 
 - (nonnull instancetype)initWithFrame:(CGRect)frame NS_DESIGNATED_INITIALIZER;
 - (nullable instancetype)initWithCoder:(nonnull NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;

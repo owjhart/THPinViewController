@@ -52,7 +52,7 @@ static const NSInteger THPinViewControllerContentViewTag = 14742;
 
 @interface THPinViewController : UIViewController
 
-@property (nonatomic, weak) id<THPinViewControllerDelegate> delegate;
+@property (nonatomic, nullable, weak) id<THPinViewControllerDelegate> delegate;
 @property (nullable, nonatomic, strong) UIColor *backgroundColor; // is only used if translucentBackground == NO
 @property (nonatomic, assign) BOOL translucentBackground;
 @property (nullable, nonatomic, copy) NSString *promptTitle;
