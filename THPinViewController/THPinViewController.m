@@ -74,7 +74,7 @@
                                                          multiplier:1.0f constant:0.0f]];
     CGFloat pinViewYOffset = 0.0f;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        pinViewYOffset = -9.0f;
+        pinViewYOffset = 0.0f;
     } else {
         BOOL isFourInchScreen = (fabs(CGRectGetHeight([[UIScreen mainScreen] bounds]) - 568.0f) < DBL_EPSILON);
         if (isFourInchScreen) {
