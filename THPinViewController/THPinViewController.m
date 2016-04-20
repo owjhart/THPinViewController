@@ -72,6 +72,15 @@
                                                           relatedBy:NSLayoutRelationEqual
                                                              toItem:self.view attribute:NSLayoutAttributeCenterX
                                                          multiplier:1.0f constant:0.0f]];
+    CGFloat pinViewYOffset = [self pinViewYOffset];
+    
+    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pinView attribute:NSLayoutAttributeCenterY
+                                                          relatedBy:NSLayoutRelationEqual
+                                                             toItem:self.view attribute:NSLayoutAttributeCenterY
+                                                         multiplier:1.0f constant:pinViewYOffset]];
+}
+
+- (CGFloat)pinViewYOffset {
     CGFloat pinViewYOffset = 0.0f;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         pinViewYOffset = 0.0f;
@@ -87,10 +96,7 @@
             }
         }
     }
-    [self.view addConstraint:[NSLayoutConstraint constraintWithItem:self.pinView attribute:NSLayoutAttributeCenterY
-                                                          relatedBy:NSLayoutRelationEqual
-                                                             toItem:self.view attribute:NSLayoutAttributeCenterY
-                                                         multiplier:1.0f constant:pinViewYOffset]];
+    return pinViewYOffset;
 }
 
 #pragma mark - Properties
