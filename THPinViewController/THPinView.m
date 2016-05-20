@@ -47,7 +47,7 @@
         _promptLabel = [[UILabel alloc] init];
         _promptLabel.translatesAutoresizingMaskIntoConstraints = NO;
         _promptLabel.textAlignment = NSTextAlignmentCenter;
-        _promptLabel.minimumScaleFactor = 0.5;
+        _promptLabel.numberOfLines = 2;
         _promptLabel.font = [UIFont systemFontOfSize:(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) ? 22.0f : 18.0f];
         [_promptLabel setContentCompressionResistancePriority:UILayoutPriorityFittingSizeLevel
                                                       forAxis:UILayoutConstraintAxisHorizontal];
